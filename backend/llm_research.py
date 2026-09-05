@@ -48,7 +48,7 @@ def _extract_json(text: str) -> dict:
 
 
 async def generate_research(ticker: str, snapshot: dict) -> dict:
-    api_key = os.environ.get("EMERGENT_LLM_KEY", "")
+    api_key = os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("EMERGENT_LLM_KEY", "")
     facts = {
         "ticker": ticker,
         "name": snapshot.get("name"),
